@@ -39,6 +39,39 @@ int isPerfectSquare(int num) {
 	return (root * root == num);
 }
 
+/* Task 1: Print perfect squares from an array of natural numbers */
+void task1() {
+		int n;
+		printf("Task 1: Perfect Squares\n");
+		printf("Enter the number of elements: ");
+		scanf("%d", &n);
+		if (n <= 0) {
+				printf("Invalid number of elements.\n");
+				return;
+		}
+		int *array = (int *) malloc(n * sizeof(int));
+		if (array == NULL) {
+				printf("Memory allocation failed.\n");
+				return;
+		}
+		printf("Enter %d natural numbers:\n", n);
+		for (int i = 0; i < n; i++) {
+				scanf("%d", &array[i]);
+		}
+		printf("Perfect squares in the array:\n");
+		int found = 0;
+		for (int i = 0; i < n; i++) {
+				if (isPerfectSquare(array[i])) {
+						printf("%d ", array[i]);
+						found = 1;
+				}
+		}
+		if (!found)
+				printf("No perfect squares found.");
+		printf("\n\n");
+		free(array);
+}
+
 void main (void)
 {
 	printf ("Hello World\n");
