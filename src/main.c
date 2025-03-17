@@ -86,6 +86,45 @@ int compareNote1(const void *a, const void *b) {
 		return strcmp(noteA->name, noteB->name);
 }
 
+/* Task 3: Manage NOTE1 records */
+void task3() {
+		NOTE1 block[BLOCK_SIZE];
+		int targetMonth;
+		int i;
+
+		printf("Task 3: NOTE1 Records\n");
+		printf("Enter information for %d NOTE1 records:\n", BLOCK_SIZE);
+		for (i = 0; i < BLOCK_SIZE; i++) {
+				printf("\nRecord %d:\n", i + 1);
+				printf("Enter name (surname and initials): ");
+				scanf(" %[^\n]s", block[i].name);
+				printf("Enter telephone number: ");
+				scanf(" %[^\n]s", block[i].tele);
+				printf("Enter birth date (year month day): ");
+				scanf("%d %d %d", &block[i].date.year, &block[i].date.month, &block[i].date.day);
+		}
+
+		/* Sort records by name */
+		qsort(block, BLOCK_SIZE, sizeof(NOTE1), compareNote1);
+
+		printf("\nEnter target birth month: ");
+		scanf("%d", &targetMonth);
+
+		int found = 0;
+		printf("\nNOTE1 records with birth month %d:\n", targetMonth);
+		for (i = 0; i < BLOCK_SIZE; i++) {
+				if (block[i].date.month == targetMonth) {
+						printf("Name: %s, Telephone: %s, Birth Date: %d-%02d-%02d\n", 
+									 block[i].name, block[i].tele, block[i].date.year, block[i].date.month, block[i].date.day);
+						found = 1;
+				}
+		}
+		if (!found)
+				printf("No records found for the specified month.\n");
+
+		printf("\n");
+}
+
 void main (void)
 {
 	printf ("Hello World\n");
