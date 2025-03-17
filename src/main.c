@@ -72,6 +72,20 @@ void task1() {
 		free(array);
 }
 
+/* Structure NOTE1 for Task 3 */
+typedef struct {
+		char name[50];   // фамилия и инициалы
+		char tele[20];   // номер телефона
+		Date date;       // дата рождения
+} NOTE1;
+
+/* Compare function for qsort to sort NOTE1 by name */
+int compareNote1(const void *a, const void *b) {
+		NOTE1 *noteA = (NOTE1 *) a;
+		NOTE1 *noteB = (NOTE1 *) b;
+		return strcmp(noteA->name, noteB->name);
+}
+
 void main (void)
 {
 	printf ("Hello World\n");
