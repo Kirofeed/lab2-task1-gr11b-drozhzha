@@ -8,6 +8,12 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+#define BLOCK_SIZE 9
+#define WORKER_SIZE 3
 
 void main (void)
 {
