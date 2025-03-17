@@ -125,6 +125,32 @@ void task3() {
 		printf("\n");
 }
 
+/* Structure for Address used in Worker */
+typedef struct {
+		char postalCode[10];
+		char country[30];
+		char region[30];
+		char district[30];
+		char city[30];
+		char street[30];
+		char house[10];
+		char apartment[10];
+} Address;
+
+/* Structure Worker for Task 4 */
+typedef struct {
+		char surname[30];
+		char name[30];
+		char patronymic[30];
+		Address address;
+		char nationality[30];
+		Date birthDate;
+		int shopNumber;
+		int employeeNumber;
+		char education[50];
+		int yearEmployment;
+} Worker;
+
 void main (void)
 {
 	printf ("Hello World\n");
