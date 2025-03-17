@@ -151,6 +151,76 @@ typedef struct {
 		int yearEmployment;
 } Worker;
 
+/* Task 4: Manage Worker records */
+void task4() {
+		Worker workers[WORKER_SIZE];
+		int i;
+
+		printf("Task 4: Worker Records\n");
+		printf("Enter information for %d workers:\n", WORKER_SIZE);
+		for (i = 0; i < WORKER_SIZE; i++) {
+				printf("\nWorker %d:\n", i + 1);
+				printf("Enter surname: ");
+				scanf(" %[^\n]s", workers[i].surname);
+				printf("Enter name: ");
+				scanf(" %[^\n]s", workers[i].name);
+				printf("Enter patronymic: ");
+				scanf(" %[^\n]s", workers[i].patronymic);
+
+				printf("Enter address details:\n");
+				printf("Postal Code: ");
+				scanf(" %[^\n]s", workers[i].address.postalCode);
+				printf("Country: ");
+				scanf(" %[^\n]s", workers[i].address.country);
+				printf("Region: ");
+				scanf(" %[^\n]s", workers[i].address.region);
+				printf("District: ");
+				scanf(" %[^\n]s", workers[i].address.district);
+				printf("City: ");
+				scanf(" %[^\n]s", workers[i].address.city);
+				printf("Street: ");
+				scanf(" %[^\n]s", workers[i].address.street);
+				printf("House: ");
+				scanf(" %[^\n]s", workers[i].address.house);
+				printf("Apartment: ");
+				scanf(" %[^\n]s", workers[i].address.apartment);
+
+				printf("Enter nationality: ");
+				scanf(" %[^\n]s", workers[i].nationality);
+				printf("Enter birth date (year month day): ");
+				scanf("%d %d %d", &workers[i].birthDate.year, &workers[i].birthDate.month, &workers[i].birthDate.day);
+				printf("Enter shop/workshop number: ");
+				scanf("%d", &workers[i].shopNumber);
+				printf("Enter employee number: ");
+				scanf("%d", &workers[i].employeeNumber);
+				printf("Enter education: ");
+				scanf(" %[^\n]s", workers[i].education);
+				printf("Enter year of employment: ");
+				scanf("%d", &workers[i].yearEmployment);
+		}
+
+		printf("\nWorkers employed in 2020:\n");
+		int found = 0;
+		for (i = 0; i < WORKER_SIZE; i++) {
+				if (workers[i].yearEmployment == 2020) {
+						printf("Name: %s %s %s, Nationality: %s, Birth Date: %d-%02d-%02d\n",
+									 workers[i].surname, workers[i].name, workers[i].patronymic,
+									 workers[i].nationality, workers[i].birthDate.year, workers[i].birthDate.month, workers[i].birthDate.day);
+						printf("Address: %s, %s, %s, %s, %s, %s, %s, %s\n",
+									 workers[i].address.postalCode, workers[i].address.country, workers[i].address.region,
+									 workers[i].address.district, workers[i].address.city, workers[i].address.street,
+									 workers[i].address.house, workers[i].address.apartment);
+						printf("Shop Number: %d, Employee Number: %d, Education: %s, Year of Employment: %d\n\n",
+									 workers[i].shopNumber, workers[i].employeeNumber, workers[i].education, workers[i].yearEmployment);
+						found = 1;
+				}
+		}
+		if (!found)
+				printf("No workers employed in 2020 were found.\n");
+
+		printf("\n");
+}
+
 void main (void)
 {
 	printf ("Hello World\n");
