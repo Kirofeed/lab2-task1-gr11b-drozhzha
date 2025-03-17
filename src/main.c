@@ -15,6 +15,30 @@
 #define BLOCK_SIZE 9
 #define WORKER_SIZE 3
 
+/* Structure for Date */
+typedef struct {
+		int year;
+		int month;
+		int day;
+} Date;
+
+/*
+ * Function: isPerfectSquare
+ * ----------------------------
+ * Checks if a given natural number is a perfect square.
+ *
+ * num: the number to check.
+ *
+ * Returns:
+ *    1 if num is a perfect square, 0 otherwise.
+ */
+int isPerfectSquare(int num) {
+	if (num < 0)
+		return 0;
+	int root = (int) sqrt(num);
+	return (root * root == num);
+}
+
 void main (void)
 {
 	printf ("Hello World\n");
