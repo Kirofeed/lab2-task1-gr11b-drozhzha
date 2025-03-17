@@ -221,8 +221,10 @@ void task4() {
 		printf("\n");
 }
 
-void main (void)
+int main(void)
 {
-	printf ("Hello World\n");
-	printf ("Goodbye World\n");
+		task1();
+		task3();
+		task4();
+		return 0;
 }
